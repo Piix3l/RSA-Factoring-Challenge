@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
-import time
-start_time = time.time()
+# import time
+# start_time = time.time()
 # -----------------------------------------------------------------------------
 import sys
 
@@ -22,7 +22,8 @@ else:
                     print(f"{number}={int(number/i)}*{i}")
                     break
 # -----------------------------------------------------------------------------
-end_time = time.time()
 
-elapsed_time = end_time - start_time
-print(f"Time taken: {elapsed_time:.4f} seconds")
+# end_time = time.time()
+
+# elapsed_time = end_time - start_time
+# print(f"Time taken: {elapsed_time:.4f} seconds")
