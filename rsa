@@ -1,0 +1,48 @@
+#!/usr/bin/python3
+
+# import time
+# start_time = time.time()
+# -----------------------------------------------------------------------------
+def generate_primes(num):
+    primes = []
+    is_prime = [True] * (num + 1)
+
+    for candidate in range(2, int(num**0.5) + 1):
+        if is_prime[candidate]:
+            primes.append(candidate)
+            for multiple in range(candidate * candidate, num + 1, candidate):
+                is_prime[multiple] = False
+
+    # Add remaining primes greater than sqrt(num)
+    for remaining in range(max(2, int(num**0.5) + 1), num + 1):
+        if is_prime[remaining]:
+            primes.append(remaining)
+
+    return primes
+
+
+import sys
+
+if len(sys.argv) != 2:
+    print('expected 1 argument got 0')
+else:
+    # Open the file in read mode
+    file_path = sys.argv[1]
+    with open(file_path, 'r') as file:
+        # Read each line in the file
+        for line in file:
+            # Process each line as needed
+            a = line.strip()
+            number = int(a)
+            generate_primes(number)
+            for i in range(2, int(line)):
+                if number % i == 0:
+                    ans = i
+                    print(f"{number}={int(number/i)}*{i}")
+                    break
+# -----------------------------------------------------------------------------
+
+# end_time = time.time()
+
+# elapsed_time = end_time - start_time
+# print(f"Time taken: {elapsed_time:.4f} seconds")
